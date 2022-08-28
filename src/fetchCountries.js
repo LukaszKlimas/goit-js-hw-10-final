@@ -1,18 +1,19 @@
-export const dupa="wielka";
 export function fetchCountries(name){
-//let name="peru";
-fetch(`https://restcountries.com/v2/name/${name}`)
+//let name="peru"; 
+return fetch(
+  `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`)
 //fetch(`https://restcountries.com/v3.1/${name}?fields=name.official,capital,population,flags.svg,languages`)
 .then(response => {
     // Response handling
-    console.log("A",response.json());
-    console.log("B",response);
+    console.log("Wczytano");
+    //console.log("A",response.json());
+    //console.log("B",response);
     return response.json();
   })
-  .then(data => {
+  //.then(data => {
     // Data handling
-    print(data.json);
-  })
+    //print(data.json);
+ // })
   .catch(error => {
     // Error handling
   });
@@ -23,18 +24,24 @@ fetch(`https://restcountries.com/v2/name/${name}`)
 export function sayHi(user) {
     alert(`Hello, ${user}!`);
     } 
+    const allCountriesTab=[];
 export function allCountries(){
     fetch(`https://restcountries.com/v2/all?fields=name,capital,population,flags.svg,languages`)
 .then(response => {
     // Response handling
-    console.log("A",response.json());
-    return response.json();
+    const odp2= response.json();
+    const odp=parse();
+    console.log("b", odp);
+    console.log("c", odp[0]);
+    console.log("d",Object.keys(odp));
+    //return JSON.parse(odp);
   })
   .then(data => {
     // Data handling
-    print(data.json);
+    console.log(data.json);
   })
   .catch(error => {
     // Error handling
+    console.log(error.json);
   });
 }
